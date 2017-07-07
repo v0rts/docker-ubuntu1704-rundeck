@@ -7,9 +7,6 @@ RUN apt-get update \
        python-software-properties \
        software-properties-common \
        rsyslog systemd systemd-cron sudo \
-    && rm -Rf /var/lib/apt/lists/* \
-    && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
-    && apt-get clean
 RUN sed -i 's/^\($ModLoad imklog\)/#\1/' /etc/rsyslog.conf
 #ADD etc/rsyslog.d/50-default.conf /etc/rsyslog.d/50-default.conf
 
@@ -17,10 +14,7 @@ RUN sed -i 's/^\($ModLoad imklog\)/#\1/' /etc/rsyslog.conf
 RUN add-apt-repository -y ppa:ansible/ansible \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-     ansible \
-  && rm -rf /var/lib/apt/lists/* \
-  && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
-  && apt-get clean
+     ansible 
 
 COPY initctl_faker .
 RUN chmod +x initctl_faker && rm -fr /sbin/initctl && ln -s /initctl_faker /sbin/initctl
@@ -35,3 +29,8 @@ RUN mkdir /tmp/ansible
 WORKDIR /tmp/ansible
 ADD java.yml /tmp/ansible/java.yml
 RUN ansible-playbook -i localhost, java.yml
+
+# Clean up apt-get repo
+  RUN rm -rf /var/lib/apt/lists/* \
+  && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
+  apt-get clean
