@@ -1,6 +1,7 @@
 # Ubuntu 16.10 LTS (Yakkety) Ansible Test Image
 
 [![Docker Automated build](https://img.shields.io/docker/automated/v0rts/docker-ubuntu1610-ansible.svg?maxAge=2592000)](https://hub.docker.com/r/v0rts/docker-ubuntu1610-ansible/)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fv0rts%2Fdocker-ubuntu1704-rundeck.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fv0rts%2Fdocker-ubuntu1704-rundeck?ref=badge_shield)
 
 Ubuntu 16.10 LTS (Yakkety) Docker container for Ansible playbook and role testing.
 
@@ -32,3 +33,7 @@ I use Docker to test my Ansible roles and playbooks on multiple OSes using CI to
 Created by v0rts
 
 Inspired by [Jeff Geerling](http://jeffgeerling.com/)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fv0rts%2Fdocker-ubuntu1704-rundeck.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fv0rts%2Fdocker-ubuntu1704-rundeck?ref=badge_large)
